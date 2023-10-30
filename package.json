@@ -1,6 +1,6 @@
 {
   "name": "vite-preprocess-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "在 Vite 搭建的 Vue 项目中使用条件编译功能",
   "main": "./build/index.js",
   "scripts": {
