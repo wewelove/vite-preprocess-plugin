@@ -1,7 +1,8 @@
 {
   "name": "vite-preprocess-plugin",
   "version": "1.0.0",
-  "description": "vite 条件编译工具",
+  "description": "支持 Vite 项目中使用条件编译功能",
+  "main": "src/index.js",
   "keywords": [
     "preprocess for rollup",
     "conditional compilation",

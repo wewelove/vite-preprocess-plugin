@@ -1,13 +1,16 @@
 ## vite-preprocess-plugin
 
-### Introduction
+### 简介
 
 `vite-preprocess-plugin` 支持 vite 项目中使用条件编译功能.
 
 ### 安装
 
-```
+```sh
 npm i vite-preprocess-plugin -D
+```
+
+```sh
 yarn add vite-preprocess-plugin -D
 ```
 
@@ -16,9 +19,12 @@ yarn add vite-preprocess-plugin -D
 ```js
 // vite.config.js
 import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+// vitePreprocess 插件
 import vitePreprocess from 'vite-preprocess-plugin';
 
-// 定义多个配置
+// vitePreprocess 配置
 const options = {web: true, h5: true};
 
 export default defineConfig({
@@ -72,3 +78,19 @@ console.log('not web!')
 ```
 
 
+## 发布
+
+```sh
+# 查看当前的 npm 配置
+npm config list    //
+
+# 将 npm 源更换为 npm 官方源
+npm config set registry https://registry.npmjs.org/
+# 登陆
+npm login
+# 发布
+npm publish
+ 
+# 发布之后可以切回淘宝源
+npm config set registry=https://registry.npmmirror.com/
+```
