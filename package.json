@@ -1,18 +1,25 @@
 {
   "name": "vite-preprocess-plugin",
-  "version": "1.0.0",
-  "description": "支持 Vite 项目中使用条件编译功能",
-  "main": "src/index.js",
+  "version": "1.0.3",
+  "description": "在 Vite 搭建的 Vue 项目中使用条件编译功能",
+  "main": "./build/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
   "keywords": [
     "preprocess for rollup",
     "conditional compilation",
     "tmplate compilation"
   ],
-  "author": "xwb",
+  "author": "wewelove",
   "homepage": "https://github.com/wewelove/vite-preprocess-plugin",
   "bugs": "https://github.com/wewelove/vite-preprocess-plugin/issues",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/types": "^7.20.7",
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  },
   "dependencies": {
     "@vue/compiler-sfc": "^3.2.45",
     "preprocess": "^3.2.0"

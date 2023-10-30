@@ -2,7 +2,7 @@
 
 ### 简介
 
-`vite-preprocess-plugin` 支持 vite 项目中使用条件编译功能.
+`vite-preprocess-plugin` 在 Vite 搭建的 Vue 项目中使用条件编译功能.
 
 ### 安装
 
