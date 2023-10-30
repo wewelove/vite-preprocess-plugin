@@ -78,11 +78,11 @@ console.log('not web!')
 ```
 
 
-## 发布
+### 发布
 
 ```sh
 # 查看当前的 npm 配置
-npm config list    //
+npm config list
 
 # 将 npm 源更换为 npm 官方源
 npm config set registry https://registry.npmjs.org/
@@ -91,6 +91,6 @@ npm login
 # 发布
 npm publish
  
-# 发布之后可以切回淘宝源
+# 发布之后切回淘宝源
 npm config set registry=https://registry.npmmirror.com/
 ```
