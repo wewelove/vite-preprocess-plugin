@@ -1,86 +1,74 @@
-## vite-preprocess
+## vite-preprocess-plugin
 
 ### Introduction
 
-`vite-preprocess-loader`支持vue项目中使用条件编译功能.
+`vite-preprocess-plugin` 支持 vite 项目中使用条件编译功能.
 
-条件编译支持：
+### 安装
+
 ```
-@ifdef 变量名
-  code...
-@endif
-```
-```
-@ifndef 变量名
-  code...
-@endif
+npm i vite-preprocess-plugin -D
+yarn add vite-preprocess-plugin -D
 ```
 
-### Example
+### 配置
+
+```js
+// vite.config.js
+import { defineConfig } from 'vite';
+import vitePreprocess from 'vite-preprocess-plugin';
+
+// 定义多个配置
+const options = {web: true, h5: true};
+
+export default defineConfig({
+  plugins: [vitePreprocess(options), vue()],
+  esbuild: {
+    // 设置 esbuild 不处理注释内容
+    legalComments: 'none',
+  }
+});
 ```
-<script setup lang="ts">
+
+### 用法
+
+```js
+// *.js
 // @ifdef web
-console.log('hello world!')
+console.log('web!')
 // @endif
-</script>
-<template>
-    <div class="wrapper">
-      <!-- @ifdef web -->
-      <h1>web</h1>
-      <!-- @endif -->
-      <!-- @ifndef web -->
-      <h1>not web</h1>
-      <!-- @endif -->
-    </div>
-</template>
 
-<style scoped>
+// @ifndef web
+console.log('not web!')
+// @endif
+```
+
+```html
+<!-- *.vue, *.html -->
+<template>
+  <div class="wrapper">
+    <!-- @ifdef web -->
+    <h1>web</h1>
+    <!-- @endif -->
+
+    <!-- @ifndef web -->
+    <h1>not web</h1>
+    <!-- @endif -->
+  </div>
+</template>
+```
+
+```css
+/* *.css */
 .wrapper {
-  line-height: 1.5;
-  max-height: 100vh;
   /* @ifdef web */
   color: red;
   /* @endif */
-  /* @ifdef h5 */
-  font-size: 100px;
-  font-weight: bold;
+
+  /* @ifndef web */
+  color: blue;
   /* @endif */
 }
-</style>
 ```
 
-### Install
-
-```
-npm install vite-preprocess
-```
-
-### Usage
-
-需要在项目运行的时候添加临时node的环境变量`platform`
-
-```
-vite.config.ts
-import vitePreprocess from 'vite-preprocess'
-
-export default defineConfig({
-  plugins: [vitePreprocess(), vue()],
-  // esbuild: false, // esbuild默认过滤注释内容
-  esbuild: {
-    legalComments: 'none', // * 一定要设置'legalComments: none'或者 'esbuild: false' ,不用esbuild处理注释内容.
-  }
-})
-```
-
-```
-package.json
-"scripts": {
-    "serve": "cross-env platform=h5 vite"
-}
-```
-### All directives
-```
-@ifdef 变量 /@endif 包括定义其中的代码块
-@ifndef 变量 /@endif 不包括其中定义的代码块
-```
 
