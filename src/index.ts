@@ -1,7 +1,6 @@
 import * as path from 'path';
 import { preprocess } from 'preprocess'
-import * as compiler from '@vue/compiler-sfc'
-import type { SFCTemplateBlock } from '@vue/compiler-sfc'
+
 interface Options{
     [propName: string]: boolean;
 }
